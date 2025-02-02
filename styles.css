@@ -1,0 +1,134 @@
+.container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+#ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #ff4444;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+#ball:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #2c3e50, #3498db);
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    cursor: pointer;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    animation: gradient 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+/* Remove unused styles */
+.container,
+#ball,
+.fall {
+    display: none;
+}
+
+.fall {
+    animation: dropBall 1s cubic-bezier(.17,.67,.83,.67) forwards;
+}
+
+@keyframes dropBall {
+    to {
+        top: calc(100vh - 50px);
+    }
+}
+
+#instructions {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: fadeOut 3s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+#selectAllBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+#selectAllBtn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 1);
+}
+#toggleInfiniteBtn {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+
+#toggleInfiniteBtn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 1);
+}
